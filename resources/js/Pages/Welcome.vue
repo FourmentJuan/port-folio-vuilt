@@ -1,34 +1,58 @@
 <template>
-    <header class="bg-gray-800 h-screen px-72">
+    <Head title="Welcome">
+        <title>Welcome</title>
+    </Head>
+    <div class="grid grid-cols-2 text-right py-10 px-72 bg-gray-800 text-gray-300">
+        <div>
+            <application-mark class="h-12 w-auto"></application-mark>
+        </div>
+        <div v-if="canLogin">
+            <Link v-if="$page.props.user" :href="route('dashboard')" class="text-sm underline">
+                Dashboard
+            </Link>
+            <template v-else>
+                <Link :href="route('login')" class="text-base underline">Log in</Link>
+                <Link v-if="canRegister" :href="route('register')" class="text-base underline place-self-end ml-4">
+                    Register
+                </Link>
+            </template>
+        </div>
+    </div>
+    <Section class="bg-gray-800 h-screen">
         <div class="h-2/3 flex flex-wrap content-between border-gray-600 pb-36">
             <p class="border-b-2 font-bold border-gray-400 pb-3 text-2xl text-gray-300 uppercase">
                 Hey! This is Juan. I'm a Software Engineer and I would like to work with you.
             </p>
         </div>
-    </header>
+    </Section>
 
-    <section class="bg-gray-200 text-gray-800 px-72 py10 h-screen">
+    <Section class="bg-gray-200 text-gray-800 h-screen">
         <h2 class="text-6xl font-bold pt-3">Skills</h2>
-    </section>
+    </Section>
 
-    <section class="bg-gray-600 text-gray-200 px-72 py10 h-screen">
+    <Section class="bg-gray-600 text-gray-200 h-screen">
         <h2 class="text-6xl font-bold pt-3">Projects</h2>
-    </section>
+    </Section>
 
-    <footer class="flex justify-between py-10 px-72 bg-gray-800 text-gray-300 text-xl">
+    <Section class="flex justify-between bg-gray-800 text-gray-300 text-xl">
         <p>&copy; JuanFourment. All rights reserved.</p>
         <div class="flex justify-evenly items-center">
             Github
         </div>
-    </footer>
+    </Section>
 </template>
 
 <script>
 import { defineComponent } from 'vue'
-
+import {Head, Link} from '@inertiajs/vue3';
+import ApplicationMark from "../Components/ApplicationMark.vue";
+import Section from "../Components/Section.vue";
 export default defineComponent({
     components: {
-        //
+        ApplicationMark,
+        Head,
+        Link,
+        Section,
     },
 
     props: {
