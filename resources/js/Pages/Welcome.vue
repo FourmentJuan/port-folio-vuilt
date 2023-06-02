@@ -18,20 +18,40 @@
             </template>
         </div>
     </div>
-    <Section class="bg-gray-800 h-screen">
-        <div class="h-2/3 flex flex-wrap content-between border-gray-600 pb-36">
-            <p class="border-b-2 font-bold border-gray-400 pb-3 text-2xl text-gray-300 uppercase">
+    <Section class="bg-gray-800 pt-16 h-screen">
+        <div class="h-3/4 flex flex-wrap content-between border-gray-600 pb-36">
+            <p class="border-b-2 font-bold border-gray-400 pb-3 text-2xl text-gray-300 uppercase ">
                 Hey! This is Juan. I'm a Software Engineer and I would like to work with you.
             </p>
+            <div class="flex items-end border-b-2 border-gray-500 pb-2">
+                <p class="font-bold mr-5 text-gray-500 text-xl">
+                    Want to know more?
+                </p>
+                <jet-button class="bg-green-400 rounded font-bold text-sm text-gray-200 hover:bg-green-700">
+                    Let's Chat
+                </jet-button>
+            </div>
+        </div>
+        <div class="animate-pulse mt-3 text-gray-300 text-center text-9xl">
+            <a href="#skills">&#8675;</a>
         </div>
     </Section>
-
-    <Section class="bg-gray-200 text-gray-800 h-screen">
+    <Section id="skills" class="bg-gray-200 text-gray-800 h-screen">
         <h2 class="text-6xl font-bold pt-3">Skills</h2>
+        <div class="flex justify-center mt-10">
+            <jet-button class="bg-indigo-800 rounded font-bold text-sm text-gray-200 hover:bg-indigo-700">
+                Get in touch
+            </jet-button>
+        </div>
     </Section>
 
     <Section class="bg-gray-600 text-gray-200 h-screen">
         <h2 class="text-6xl font-bold pt-3">Projects</h2>
+        <div class="flex justify-center mt-10">
+            <jet-button class="bg-purple-400 rounded font-bold text-sm text-gray-200 hover:bg-purple-600">
+                Know
+            </jet-button>
+        </div>
     </Section>
 
     <Section class="flex justify-between bg-gray-800 text-gray-300 text-xl">
@@ -47,12 +67,14 @@ import { defineComponent } from 'vue'
 import {Head, Link} from '@inertiajs/vue3';
 import ApplicationMark from "../Components/ApplicationMark.vue";
 import Section from "../Components/Section.vue";
+import JetButton from "../Components/PrimaryButton.vue";
 export default defineComponent({
     components: {
         ApplicationMark,
         Head,
         Link,
         Section,
+        JetButton,
     },
 
     props: {
