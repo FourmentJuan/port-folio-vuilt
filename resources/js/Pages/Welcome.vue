@@ -56,7 +56,7 @@
         <h2 class="text-6xl font-bold pt-3">Projects</h2>
         <div v-for="(project, index) in projects">
             <Project :title="project.title" :description="project.description" :color="project.color">
-                <component :is="componentName(index)"></component>
+                <Icono></Icono>
             </Project>
         </div>
         <div class="flex justify-center mt-10">
@@ -83,18 +83,21 @@
 
             <form
                 class="flex flex-col items-center p-16"
+                @submit.prevent="submit"
             >
                 <jet-input
                     class="px-5 py-3 w-96 border border-gray-600 rounded"
                     type="email"
                     name="email"
                     placeholder="Your email"
+                    v-model="form.email"
                 ></jet-input>
 
                 <textarea
                     class="px-5 py-3 w-96 border border-gray-600 rounded mt-5"
                     name="message"
                     placeholder="The details :)"
+                    v-model="form.message"
                 ></textarea>
 
                 <jet-button
@@ -118,6 +121,7 @@ import Skill from "../Components/Skill.vue";
 import Project from "../Components/Project.vue";
 import JetModal from "../Components/Modal.vue";
 import JetInput from "../Components/TextInput.vue";
+import Icono from "@heroicons/vue/20/solid/AcademicCapIcon.js";
 
 export default defineComponent({
     components: {
@@ -130,6 +134,7 @@ export default defineComponent({
         Project,
         JetModal,
         JetInput,
+        Icono
     },
 
     props: {
@@ -143,17 +148,24 @@ export default defineComponent({
         componentName(index) {
             return defineAsyncComponent(() =>
                 import (
-                '@heroicons/vue/solid/'
+                '../../js/@heroicons/vue/solid/'
                 + this.projects[index].icon_name
                 + 'Icon.js'
                     )
             )
+        },
+        submit(){
+            this.form.post(route('contact'));
         }
     },
 
     data() {
         return {
             contacting: false,
+            form: this.$inertia.form({
+                'email' : '',
+                'message' : '',
+            }),
         }
     }
 

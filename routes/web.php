@@ -26,6 +26,8 @@ Route::get('/', function () {
     ]);
 });
 
+Route::post('contact',[\App\Http\Controllers\ContactController::class,'contact'])->name('contact');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -34,4 +36,8 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
+});
+
+Route::get('test', function (){
+    return new \App\Mail\ContactedMessage('test@test.com','Hello, please send me your CV');
 });
