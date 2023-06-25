@@ -1,6 +1,7 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
-import Welcome from '@/Components/Welcome.vue';
+import NavLink from "@/Components/NavLink.vue";
+import {Link, router} from '@inertiajs/vue3';
 </script>
 
 <template>
@@ -13,8 +14,30 @@ import Welcome from '@/Components/Welcome.vue';
 
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                    <Welcome />
+                <div class="bg-white overflow-hidden shadow-xl rounded-lg p-6 border-b border-gray-200 flex flex-col text-xl">
+                    <p class="mb-5">
+                        Your Resources
+                    </p>
+                    <ul class="p-3">
+                        <li class="ml-2 flex flex-rpw items-center">
+                            <div class="bg-gray-500 mr-3 h-2 w-2">
+
+                            </div>
+                            <Link class="hover:text-gray-800 mt-2 text-sm text-indigo-500 border-b border-gray-400" >
+                            </Link>
+                            Skills
+                        </li>
+                        <li class="ml-2 flex flex-rpw items-center">
+                            <div class="bg-gray-500 mr-3 h-2 w-2">
+
+                            </div>
+                            <Link>
+
+                            <NavLink class="hover:text-gray-800 mt-2 text-sm text-indigo-500 border-b border-gray-400">
+                            </NavLink>
+                            Projects
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
