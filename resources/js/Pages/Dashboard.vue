@@ -1,7 +1,7 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
+import {Link} from '@inertiajs/vue3';
 import NavLink from "@/Components/NavLink.vue";
-import {Link, router} from '@inertiajs/vue3';
 </script>
 
 <template>
@@ -21,20 +21,22 @@ import {Link, router} from '@inertiajs/vue3';
                     <ul class="p-3">
                         <li class="ml-2 flex flex-rpw items-center">
                             <div class="bg-gray-500 mr-3 h-2 w-2">
-
                             </div>
-                            <Link class="hover:text-gray-800 mt-2 text-sm text-indigo-500 border-b border-gray-400" >
+                            <Link class="hover:text-gray-800 mt-2 text-sm text-indigo-500 border-b border-gray-400"
+                                  :href="route('skills.index')"
+                            >
+                                Skills
                             </Link>
-                            Skills
                         </li>
                         <li class="ml-2 flex flex-rpw items-center">
                             <div class="bg-gray-500 mr-3 h-2 w-2">
 
                             </div>
-                            <Link>
+                            <Link class="hover:text-gray-800 mt-2 text-sm text-indigo-500 border-b border-gray-400"
 
-                            <NavLink class="hover:text-gray-800 mt-2 text-sm text-indigo-500 border-b border-gray-400">
-                            </NavLink>
+                            >
+
+                            </Link>
                             Projects
                         </li>
                     </ul>
